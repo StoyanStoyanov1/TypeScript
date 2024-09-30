@@ -1,8 +1,9 @@
 class Department {
-    name: string;
-    employees: string[] = [];
+    private name: string;
+    private employees: string[] = [];
 
-    constructor(n: string) {
+    constructor(private readonly id: string, n: string) {
+        this.id = id;
         this.name = n;
     }
 
@@ -20,10 +21,11 @@ class Department {
     }
 }
 
-const accounting = new Department('Stenly');
+const accounting = new Department( '123','Stenly');
 
 accounting.describe();
 
 accounting.addEmployee('Other');
 accounting.addEmployee('Max');
+
 accounting.printEmployeeInformation();
