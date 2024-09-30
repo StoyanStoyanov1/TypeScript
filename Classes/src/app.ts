@@ -1,10 +1,17 @@
-class Department {
+abstract class Department {
+    static fiscalYear = 2020;
     private name: string;
     private employees: string[] = [];
 
     constructor(private readonly id: string, n: string) {
         this.id = id;
         this.name = n;
+    }
+
+    abstract sayHallo(this: Department): void;
+
+    static createEmployee(name: string) {
+        return {name: name};
     }
 
     describe(this: Department) {
@@ -28,6 +35,10 @@ class ITDeparment extends Department {
         this.admins = admins;
         
     }
+
+    sayHallo(this: Department): void {
+        console.log('Hallo')
+    }
 }
 
 class AccoutingDepartment extends Department {
@@ -40,6 +51,18 @@ class AccoutingDepartment extends Department {
 
         throw new Error('No report found.');
 
+    }
+
+    sayHallo(this: Department): void {
+        console.log('Hallo');
+    }
+
+    set mostRecentReport(value: string) {
+        if (!value) {
+            throw new Error('Please pass in a valid value!')
+        }
+
+        this.addReport(value);
     }
 
     constructor(id: string, private reports: string[]) {
@@ -57,6 +80,8 @@ class AccoutingDepartment extends Department {
         console.log(this.reports);
     }
 }
+
+const employee1 = Department.createEmployee('Max');
 
 const it = new ITDeparment( '123',['Stenly']);
 
