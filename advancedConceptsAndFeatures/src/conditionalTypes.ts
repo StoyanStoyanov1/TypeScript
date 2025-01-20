@@ -1,8 +1,8 @@
-interface Animal {
+interface AnimalT {
     live: () => void;
   }
   
-  interface Dog extends Animal {
+  interface DogT extends AnimalT {
     woof: () => void;
   }
   
