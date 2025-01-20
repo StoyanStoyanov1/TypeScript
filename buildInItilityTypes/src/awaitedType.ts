@@ -1,4 +1,4 @@
-const promise: Promise<number> = new Promise((res, rej) => {
+const promise: Promise<number> = new Promise((res) => {
     setTimeout(() => {
       res(1);
     }, 1000);
