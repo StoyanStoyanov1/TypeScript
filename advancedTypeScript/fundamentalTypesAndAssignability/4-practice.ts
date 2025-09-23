@@ -1,4 +1,4 @@
-export function applyTheme(theme: TODO): void {
+export function applyTheme(theme: "light" | "dark"): void {
   // Implementation details here...
 }
 
@@ -6,6 +6,6 @@ export function applyTheme(theme: TODO): void {
 applyTheme("light");
 applyTheme("dark");
 
-// ❌ Invalid usage:
-applyTheme("blue");
-applyTheme(1);
+// // ❌ Invalid usage:
+// applyTheme("blue");
+// applyTheme(1);
