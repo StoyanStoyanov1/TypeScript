@@ -1,6 +1,12 @@
-import { Equal, Expect } from "..";
+import { Equal, Expect } from ".";
 
-export type UpdateSettings<Base, Overrides> = TODO;
+/**
+ * The UpdateSettings type takes two types, Base and Overrides,
+ * and returns a new type where the properties of Overrides
+ * override the properties of Base.
+ */
+export type UpdateSettings<Base, Overrides> = Omit<Base, keyof Overrides> &
+  Overrides;
 
 /**
  * Merges two settings objects, with properties from the second object
