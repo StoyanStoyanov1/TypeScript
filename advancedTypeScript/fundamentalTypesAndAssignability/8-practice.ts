@@ -1,4 +1,4 @@
-export function getErrorCode(error: TODO): TODO {
+export function getErrorCode(error: unknown): number | string {
   if (error instanceof Error && "code" in error) {
     const maybeCode = error.code;
     if (typeof maybeCode === "string" || typeof maybeCode === "number") {

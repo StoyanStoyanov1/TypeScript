@@ -1,5 +1,5 @@
 // Define the type for our accumulator function: a callable function with a `reset` method.
-export let accumulator: TODO;
+export let accumulator: ((value: number) => number) & {reset: Function};
 
 // Internal state for the accumulator.
 let total = 0;
@@ -23,8 +23,8 @@ console.log(accumulator(5)); // Outputs: 15
 // ✅ Valid usage: Reset the accumulator.
 accumulator.reset(); // Outputs: "Accumulator has been reset."
 
-// ❌ Error: `nonExistentMethod` does not exist on `accumulator`.
-accumulator.nonExistentMethod();
+// // ❌ Error: `nonExistentMethod` does not exist on `accumulator`.
+// accumulator.nonExistentMethod();
 
-// ❌ Error: Cannot assign a string to `accumulator`.
-accumulator = "yohoooo!";
+// // ❌ Error: Cannot assign a string to `accumulator`.
+// accumulator = "yohoooo!";

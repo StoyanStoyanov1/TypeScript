@@ -1,6 +1,6 @@
 import { Equal, Expect } from ".";
 
-export function buildResponse(base: TODO, data: TODO): TODO {
+export function buildResponse<B, D>(base: B, data: D): B & D {
   return { ...base, ...data };
 }
 

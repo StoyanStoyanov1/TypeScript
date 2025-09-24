@@ -1,5 +1,5 @@
 // This helper function should is supposed to signals that an unexpected case has occurred.
-export function assertUnreachable(value: TODO): TODO {
+export function assertUnreachable(value: never): never {
   throw new Error(`Unhandled case: ${JSON.stringify(value)}`);
 }
 
@@ -16,8 +16,8 @@ if (CURRENT_STATUS !== 200) {
   assertUnreachable(CURRENT_STATUS);
 }
 
-// ❌ Calling assertUnreachable on CURRENT_STATUS outside of a narrowed branch is an error.
-assertUnreachable(CURRENT_STATUS);
+// // ❌ Calling assertUnreachable on CURRENT_STATUS outside of a narrowed branch is an error.
+// assertUnreachable(CURRENT_STATUS);
 
 function handleApiResponse(response: ApiResponse): string {
   switch (response.status) {
@@ -33,13 +33,13 @@ function handleApiResponse(response: ApiResponse): string {
   }
 }
 
-function handleIncompleteResponse(response: ApiResponse): string {
-  switch (response.status) {
-    case 200:
-      return `Success: ${response.data}`;
-    // ❌ The cases for 404 and 500 are missing,
-    // so using assertUnreachable here will produce a type error.
-    default:
-      return assertUnreachable(response);
-  }
-}
+// function handleIncompleteResponse(response: ApiResponse): string {
+//   switch (response.status) {
+//     case 200:
+//       return `Success: ${response.data}`;
+//     // ❌ The cases for 404 and 500 are missing,
+//     // so using assertUnreachable here will produce a type error.
+//     default:
+//       return assertUnreachable(response);
+//   }
+// }
